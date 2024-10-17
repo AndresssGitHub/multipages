@@ -1,0 +1,14 @@
+---
+
+---
+
+<button 
+class="items-center space-x-1 inline-flex bg-blue-500 px-6 py-2 rounded-lg shadow-xl hover:bg-blue-600 transition-colors mx-4 text-white font-semibold cursor-pointer"
+class:list={["bg-red-500", {classNames: true}]} 
+>
+  <slot name="start-icon" />
+  <slot name="text">
+    Send
+  </slot>
+  <slot name="end-icon" />
+</button>
