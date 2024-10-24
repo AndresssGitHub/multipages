@@ -3,6 +3,8 @@ import { Icon } from "astro-icon/components";
 
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+
+const buttons = ["Aceptar", "Enviar", "Cancelar", "Otro"];
 ---
 
 <Layout title="Contact">
@@ -50,20 +52,30 @@ import Button from "../components/Button.astro";
   <div class="flex mt-6">
     <Icon class="size-10 text-purple-500 ml-10" name="mdi:skull" />
     <Icon class="size-10 text-red-500 ml-10" name="mdi:emoticon-devil" />
-    <Icon class="size-10 text-green-500 ml-10 hover:text-green-600" name="mdi:alien" />
+    <Icon
+      class="size-10 text-green-500 ml-10 hover:text-green-600"
+      name="mdi:alien"
+    />
     <Icon class="size-10 text-blue-500 ml-10" name="mdi:ghost" />
     <Icon class="size-10 text-orange-500 ml-10" name="mdi:halloween" />
-    <Icon class="size-10 text-cyan-500 ml-10" name="svg-spinners:blocks-shuffle-3" />
+    <Icon
+      class="size-10 text-cyan-500 ml-10"
+      name="svg-spinners:blocks-shuffle-3"
+    />
   </div>
   <div class="flex mt-6">
-    <Icon class="size-10  ml-10" name="flagpack:co" />
-    <Icon class="size-10  ml-10" name="flagpack:us" />
-    <Icon class="size-10  ml-10" name="flagpack:br" />
-    <Icon class="size-10  ml-10" name="flagpack:jp" />
-    <Icon class="size-10  ml-10" name="flagpack:fr" />
-    <Icon class="size-10  ml-10" name="flagpack:it" />
+    <Icon class="size-10 ml-10" name="flagpack:co" />
+    <Icon class="size-10 ml-10" name="flagpack:us" />
+    <Icon class="size-10 ml-10" name="flagpack:br" />
+    <Icon class="size-10 ml-10" name="flagpack:jp" />
+    <Icon class="size-10 ml-10" name="flagpack:fr" />
+    <Icon class="size-10 ml-10" name="flagpack:it" />
   </div>
 
-  
+  {
+    buttons.map((text) => {
+      return <Button><span slot="text">{text}</span></Button>
+    })
+  }
 
 </Layout>
