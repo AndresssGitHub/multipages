@@ -16,42 +16,46 @@ const { title = "No name" } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
+	<body>
+		<div class="sticky top-2 botton-2 my-2 rounded-full mx-2 bg-red-500 h-24 text-white font-myfont font-semibold">
+			<span class="ml-20">preheader</span>
+		</div>
 
-	<header class="bg-blue-500 h-20"></header>
+		<header class="bg-blue-500 h-20"></header>
 
-	<menu class="flex bg-slate-400">
-		<li>
-			<a href="/" class="hover:bg-white/30 block p-2 font-medium text-blue-950"
-				>Start</a
-			>
-		</li>
-		<li>
-			<a
-				href="/who-we-are"
-				class="hover:bg-white/30 block p-2 font-medium text-blue-950"
-				>Who we are?</a
-			>
-		</li>
-		<li>
-			<a
-				href="/organigram"
-				class="hover:bg-white/30 block p-2 font-medium text-blue-950"
-				>Organigram</a
-			>
-		</li>
-		<li>
-			<a
-				href="/contact"
-				class="hover:bg-white/30 block p-2 font-medium text-blue-950">Contact</a
-			>
-		</li>
-	</menu>
+		<menu class="flex bg-slate-400"> 
+			<li>
+				<a
+					href="/"
+					class="hover:bg-white/30 block p-2 font-medium text-blue-950">Start</a
+				>
+			</li>
+			<li>
+				<a
+					href="/who-we-are"
+					class="hover:bg-white/30 block p-2 font-medium text-blue-950"
+					>Who we are?</a
+				>
+			</li>
+			<li>
+				<a
+					href="/organigram"
+					class="hover:bg-white/30 block p-2 font-medium text-blue-950"
+					>Organigram</a
+				>
+			</li>
+			<li>
+				<a
+					href="/contact"
+					class="hover:bg-white/30 block p-2 font-medium text-blue-950"
+					>Contact</a
+				>
+			</li>
+		</menu>
 
-	<slot />
-
-
+		<slot />
+	</body>
 </html>
-
 <style is: global>
 	/* Register your custom font family and tell the browser where to find it. */
 	@font-face {
