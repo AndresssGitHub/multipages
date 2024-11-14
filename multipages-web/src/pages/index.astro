@@ -1,43 +1,99 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title='Welcome to my project'>
+<Layout title="Welcome to my project">
 	<span class="font-myfont text-blue-500 font-bold text-5xl">Hello world!</span>
-	<div class="text-red-600 text-6xl font-extrabold">
-		Cruel 
-	</div>
-	<div id="btn" class="bg-blue-400 p-3 m-3 rounded-md shadow-md hover:bg-blue-500 transition-colors text-white font-semibold  inline-block">
+	<div class="text-red-600 text-6xl font-extrabold">Cruel</div>
+	<div
+		id="btn"
+		class="bg-blue-400 p-3 m-3 rounded-md shadow-md hover:bg-blue-500 transition-colors text-white font-semibold inline-block"
+	>
 		Click me
+	</div>
+
+	<div class="embla">
+		<div class="embla__viewport">
+			<div class="embla__container w-[500px]">
+				<div class="embla__slide flex justify-center">
+					<img src="https://images.pexels.com/photos/1476880/pexels-photo-1476880.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+				</div>
+				<div class="embla__slide flex justify-center">
+					<img src="https://images.freeimages.com/images/large-previews/3a1/warm-sunset-over-hills-0410-5698087.jpg?fmt=webp&w=500" alt="">
+				</div>
+				<div class="embla__slide flex justify-center">
+					<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgudGaq-fdJryhZj1A_eJsu_1qUppKhhSPMtRnxE_eOeVnMThSerI0ULU3j_JJEq1JVNFXvEK6WnKWF3FAHDXjpBsZAJEq3WlranP6ZyrU4J2sqSSAOx-K7ootGsiEq8Kff9nOUjO9R-x0/s1600/03+Paisaje+navarro.jpg" alt="">
+				</div>
+				<div class="embla__slide flex justify-center">
+					<img src="https://i.pinimg.com/564x/e0/60/1b/e0601b495122a0df7400a3f9b2c47098.jpg" alt="">
+				</div>
+				<div class="embla__slide flex justify-center">
+					<img src="https://images.freeimages.com/images/large-previews/347/winter-sunset-snowscape-0410-5697951.jpg?fmt=webp&w=500" alt="">
+				</div>
+				<div class="embla__slide flex justify-center">
+					<img src="https://images.pexels.com/photos/2258534/pexels-photo-2258534.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+				</div>
+				<div class="embla__slide flex justify-center">
+					<img src="https://live.staticflickr.com/65535/52619823969_ce7e9faec4.jpg" alt="">
+				</div>
+			</div>
+		</div>
+		<button class="embla__prev bg-blue-900 hover:bg-blue-950 transition-colors p-2 m-2 rounded-md text-white font-semibold">Prev</button>
+		<button class="embla__next bg-blue-900 hover:bg-blue-950 transition-colors p-2 m-2 rounded-md text-white font-semibold">Next</button>
 	</div>
 </Layout>
 
+<style>
+	.embla {
+		overflow: hidden;
+	}
+	.embla__container {
+		display: flex;
+	}
+	.embla__slide {
+		flex: 0 0 100%;
+		min-width: 0;
+	}
+</style>
+
 <script>
-	import JSConfetti from 'js-confetti'
+	import JSConfetti from "js-confetti";
+	import EmblaCarousel from "embla-carousel";
 
-	const jsConfetti = new JSConfetti()
-	const btn = document.getElementById("btn")
+	const jsConfetti = new JSConfetti();
 
-	btn.addEventListener("click", function(e){
-		const elm = e.target
+	const rootNode = document.querySelector('.embla')
+	const viewportNode = rootNode.querySelector('.embla__viewport')
+	const prevButtonNode = rootNode.querySelector('.embla__prev')
+	const nextButtonNode = rootNode.querySelector('.embla__next')
+	const options = {loop: false}
+	const embla = EmblaCarousel(viewportNode, options)
+	prevButtonNode.addEventListener('click', embla.scrollPrev, false)
+	nextButtonNode.addEventListener('click', embla.scrollNext, false)
+
+	const btn = document.getElementById("btn");
+ bg-blue-500
+	btn.addEventListener("click", function (e) {
+		const elm = e.target;
 		//elm.classList.remove("bg-blue-400")
 		//elm.classList.add("bg-red-400")
-		elm.classList.replace("bg-blue-400", "bg-green-500")
+		elm.classList.replace("bg-blue-400", "bg-green-500");
 
-		elm.innerText = "Ouch!"
+		elm.innerText = "Ouch!";
 
-		const myDiv = document.createElement("div")
-		myDiv.innerText = "Hello new world!"
-		myDiv.classList.add("bg-pink-500", "text-white")
+		const myDiv = document.createElement("div");
+		myDiv.innerText = "Hello new world!";
+		myDiv.classList.add("bg-pink-500", "text-white");
 
-		myDiv.addEventListener("click", (e)=>{
-			console.log("Harakiri", e.target)
-			e.target.remove()
-		})
-		jsConfetti.addConfetti()
-		document.body.appendChild(myDiv)
-		console.log("I'm in console", e.target.classlist)
-	})
+		myDiv.addEventListener("click", (e) => {
+			console.log("Harakiri", e.target);
+			e.target.remove();
+		});
+		jsConfetti.addConfetti({
+			emojis: ["🌈", "⚡️", "💥", "✨", "💫", "🌸"],
+		});
+		jsConfetti.addConfetti();
+		document.body.appendChild(myDiv);
+		console.log("I'm in console", e.target.classlist);
+	});
 </script>
-
-
