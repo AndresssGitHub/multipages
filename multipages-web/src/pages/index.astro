@@ -13,6 +13,9 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script>
+	import JSConfetti from 'js-confetti'
+
+	const jsConfetti = new JSConfetti()
 	const btn = document.getElementById("btn")
 
 	btn.addEventListener("click", function(e){
@@ -31,7 +34,7 @@ import Layout from '../layouts/Layout.astro';
 			console.log("Harakiri", e.target)
 			e.target.remove()
 		})
-
+		jsConfetti.addConfetti()
 		document.body.appendChild(myDiv)
 		console.log("I'm in console", e.target.classlist)
 	})
