@@ -27,8 +27,12 @@ import Layout from '../layouts/Layout.astro';
 		myDiv.innerText = "Hello new world!"
 		myDiv.classList.add("bg-pink-500", "text-white")
 
-		document.body.appendChild(myDiv)
+		myDiv.addEventListener("click", (e)=>{
+			console.log("Harakiri", e.target)
+			e.target.remove()
+		})
 
+		document.body.appendChild(myDiv)
 		console.log("I'm in console", e.target.classlist)
 	})
 </script>
